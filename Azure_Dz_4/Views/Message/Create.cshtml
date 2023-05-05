@@ -1,0 +1,22 @@
+﻿@model PurchaseLotDTO
+<form asp-action="Create" method="post">
+    <span asp-validation-summary="ModelOnly" class="text-danger"></span>
+    <select asp-for="CurrencyName" class="form-control">
+        <option value="USD">USD</option>
+        <option value="EUR">EUR</option>
+        <option value="CAD">CAD</option>
+        <option value="CNY">CNY</option>
+        <option value="SEK">SEK</option>
+    </select>
+    <div class="form-group">
+        <label asp-for="Amount" class="control-label"></label>
+        <input asp-for="Amount" class="form-control" />
+        <span asp-validation-for="Amount" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="SellerName" class="control-label"></label>
+        <input asp-for="SellerName" class="form-control" />
+        <span asp-validation-for="SellerName" class="text-danger"></span>
+    </div>
+    <input class="btn btn-primary" type="submit" value="Send">
+</form>

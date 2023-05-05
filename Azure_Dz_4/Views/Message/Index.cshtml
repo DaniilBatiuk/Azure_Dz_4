@@ -1,0 +1,32 @@
+﻿@model MessageIndexViewModel
+<form asp-action="Index" method="get">
+    <span asp-validation-summary="ModelOnly" class="text-danger"></span>
+    <select asp-for="@Model.CurrencyName" class="form-control" style="width:200px;">
+        <option value="USD">USD</option>
+        <option value="EUR">EUR</option>
+        <option value="CAD">CAD</option>
+        <option value="CNY">CNY</option>
+        <option value="SEK">SEK</option>
+    </select>
+    <input class="btn btn-primary" type="submit" value="Select">
+</form>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>CurrencyName</th>
+            <th>Amount</th>
+            <th>SellerName</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (PurchaseLotDTO message in Model.PurchaseLotDTOs)
+        {
+            <tr>
+                <td>@message.CurrencyName</td>
+                <td>@message.Amount</td>
+                <td>@message.SellerName</td>
+            </tr>
+        }
+    </tbody>
+</table>
